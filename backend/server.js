@@ -33,6 +33,11 @@ if (process.env.NODE_ENV === "production") {
     res.send("API IS Running");
   });
 }
+app.use(
+  cors({
+    origin: "https://talk-a-tive-6dfv.onrender.com",
+  })
+);
 
 app.use(notfound);
 app.use(errorHandler);
