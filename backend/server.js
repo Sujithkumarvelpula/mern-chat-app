@@ -1,5 +1,5 @@
 const express = require("express");
-const cors = require("cors");
+
 const dotenv = require("dotenv");
 const { chats } = require("./data/data");
 
@@ -34,11 +34,6 @@ if (process.env.NODE_ENV === "production") {
     res.send("API IS Running");
   });
 }
-app.use(
-  cors({
-    origin: "https://talk-a-tive-6dfv.onrender.com",
-  })
-);
 
 app.use(notfound);
 app.use(errorHandler);
@@ -52,7 +47,7 @@ const server = app.listen(
 const io = require("socket.io")(server, {
   pingTimeout: 60000,
   cors: {
-    origin: "https://talk-a-tive-6dfv.onrender.com",
+    origin: "http://localhost:3000",
   },
 });
 io.on("connection", (socket) => {
