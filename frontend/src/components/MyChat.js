@@ -98,6 +98,13 @@ const MyChat = ({ fetchAgain }) => {
                     ? getSender(loggedUser, chat.users)
                     : chat.chatName}
                 </Text>
+                  <Text>
+                  {chat.latestMessage
+                    ? chat.latestMessage.sender.name +
+                      ":" +
+                      chat.latestMessage.content
+                    : ""}
+                </Text>
               </Box>
             ))}
           </Stack>
